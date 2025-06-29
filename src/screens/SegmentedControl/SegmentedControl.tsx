@@ -590,6 +590,8 @@ export const SegmentedControl = (): JSX.Element => {
           color: var(--text-primary);
           display: flex;
           flex-direction: column;
+          /* Mobile bottom spacing fix */
+          padding-bottom: env(safe-area-inset-bottom, 0px);
         }
 
         .app-container {
@@ -600,6 +602,8 @@ export const SegmentedControl = (): JSX.Element => {
           margin: 0 auto;
           width: 100%;
           padding: 0 20px;
+          /* Mobile bottom spacing */
+          padding-bottom: 40px;
         }
 
         .top-header {
@@ -1400,6 +1404,8 @@ export const SegmentedControl = (): JSX.Element => {
         @media (max-width: 768px) {
           .app-container {
             padding: 0 10px;
+            /* Increased mobile bottom padding */
+            padding-bottom: 60px;
           }
           
           .top-header {
@@ -1474,6 +1480,11 @@ export const SegmentedControl = (): JSX.Element => {
         }
 
         @media (max-width: 480px) {
+          .app-container {
+            /* Extra bottom padding for small mobile screens */
+            padding-bottom: 80px;
+          }
+
           .modal-overlay {
             padding: 10px;
             align-items: flex-start;
@@ -1503,6 +1514,28 @@ export const SegmentedControl = (): JSX.Element => {
 
           .modal-content {
             max-width: 95vw;
+          }
+        }
+
+        /* iOS Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+          .desktop-app {
+            /* iOS Safari safe area support */
+            padding-bottom: max(40px, env(safe-area-inset-bottom));
+          }
+          
+          @media (max-width: 768px) {
+            .app-container {
+              /* iOS Safari bottom padding */
+              padding-bottom: max(60px, env(safe-area-inset-bottom, 60px));
+            }
+          }
+
+          @media (max-width: 480px) {
+            .app-container {
+              /* iOS Safari extra bottom padding for small screens */
+              padding-bottom: max(80px, env(safe-area-inset-bottom, 80px));
+            }
           }
         }
       `}</style>
