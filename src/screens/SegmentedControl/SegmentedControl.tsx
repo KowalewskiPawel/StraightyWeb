@@ -80,7 +80,7 @@ export const SegmentedControl = (): JSX.Element => {
   };
 
   const getSlothImage = () => {
-    if (isCalibrating || analysis.status === 'No person detected') return assets.slothHappy;
+    if (isCalibrating || analysis.status === 'No person detected') return assets.slothSad;
     if (analysis.mood === 'happy') return assets.slothHappy;
     if (analysis.mood === 'neutral') return assets.slothSad;
     return assets.slothAngry;
