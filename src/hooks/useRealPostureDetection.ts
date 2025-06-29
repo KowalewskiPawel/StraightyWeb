@@ -101,7 +101,7 @@ export const useRealPostureDetection = (toleranceValue: number = 25, soundsEnabl
           break;
         case 'notification':
           oscillator.frequency.setValueAtTime(500, audioContext.currentTime);
-          gainNode.gain.setValueAtTime(0.08, audioContext.currentTime);
+          gainne.gain.setValueAtTime(0.08, audioContext.currentTime);
           gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
           oscillator.start(audioContext.currentTime);
           oscillator.stop(audioContext.currentTime + 0.15);
@@ -297,7 +297,7 @@ export const useRealPostureDetection = (toleranceValue: number = 25, soundsEnabl
 
     // Determine mood and status based on commands
     let mood: 'happy' | 'neutral' | 'angry' = 'happy';
-    let status = 'Perfect posture!';
+    let status = 'Checking posture!';
     
     if (commands.length === 1) {
       mood = 'neutral';
