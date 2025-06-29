@@ -647,7 +647,7 @@ export const SegmentedControl = (): JSX.Element => {
           gap: 30px;
           flex: 1;
           min-height: 0;
-          align-items: stretch;
+          align-items: flex-start;
         }
 
         .left-panel, .right-panel {
@@ -663,7 +663,7 @@ export const SegmentedControl = (): JSX.Element => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           padding: 0 20px;
           min-width: 0;
         }
@@ -672,7 +672,7 @@ export const SegmentedControl = (): JSX.Element => {
           width: 100%;
           max-width: 600px;
           border-radius: 24px;
-          padding: 40px;
+          padding: 24px;
           text-align: center;
           transition: background-color 0.5s ease;
           position: relative;
@@ -680,19 +680,19 @@ export const SegmentedControl = (): JSX.Element => {
           border: 1px solid rgba(255, 255, 255, 0.1);
           display: flex;
           flex-direction: column;
-          /* Remove height: 100% and let it size naturally */
+          min-height: fit-content;
         }
 
         .status-message-container {
-          min-height: 80px;
+          min-height: 60px;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 24px;
+          margin-bottom: 16px;
         }
 
         .status-message {
-          font-size: 32px;
+          font-size: 28px;
           font-weight: 700;
           color: var(--text-primary);
           line-height: 1.2;
@@ -704,17 +704,17 @@ export const SegmentedControl = (): JSX.Element => {
 
         .sloth-container {
           position: relative;
-          margin-bottom: 32px;
+          margin-bottom: 20px;
           display: flex;
           justify-content: center;
           align-items: center;
-          min-height: 220px;
+          min-height: 160px;
           flex-shrink: 0;
         }
 
         .sloth-character {
-          width: 220px;
-          height: 220px;
+          width: 160px;
+          height: 160px;
           object-fit: contain;
           border-radius: 50%;
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
@@ -723,18 +723,18 @@ export const SegmentedControl = (): JSX.Element => {
 
         .stress-marks {
           position: absolute;
-          top: 20px;
-          right: 60px;
-          font-size: 24px;
+          top: 15px;
+          right: 45px;
+          font-size: 20px;
           color: #ff4444;
           animation: pulse 1s infinite;
         }
 
         .no-person-indicator {
           position: absolute;
-          top: 20px;
-          left: 60px;
-          font-size: 24px;
+          top: 15px;
+          left: 45px;
+          font-size: 20px;
           opacity: 0.5;
           animation: fade 2s infinite;
         }
@@ -750,7 +750,7 @@ export const SegmentedControl = (): JSX.Element => {
         }
 
         .progress-container {
-          margin-bottom: 24px;
+          margin-bottom: 16px;
           width: 100%;
           max-width: 400px;
           margin-left: auto;
@@ -785,15 +785,15 @@ export const SegmentedControl = (): JSX.Element => {
         }
 
         .sub-message-container {
-          min-height: 60px;
+          min-height: 50px;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 24px;
+          margin-bottom: 16px;
         }
 
         .sub-message {
-          font-size: 18px;
+          font-size: 16px;
           line-height: 1.5;
           max-width: 400px;
           margin: 0 auto;
@@ -818,7 +818,7 @@ export const SegmentedControl = (): JSX.Element => {
         }
 
         .recalibrate-btn {
-          padding: 14px 28px;
+          padding: 12px 24px;
           background-color: var(--accent-color);
           color: white;
           border: none;
@@ -855,6 +855,9 @@ export const SegmentedControl = (): JSX.Element => {
           border: 1px solid var(--border-color);
           overflow: hidden;
           transition: background-color 0.2s, transform 0.2s;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
         }
 
         .panel-card:hover {
@@ -868,6 +871,7 @@ export const SegmentedControl = (): JSX.Element => {
           gap: 12px;
           padding: 16px;
           border-bottom: 1px solid var(--border-color);
+          flex-shrink: 0;
         }
 
         .card-icon {
@@ -910,6 +914,8 @@ export const SegmentedControl = (): JSX.Element => {
           flex-direction: column;
           align-items: center;
           gap: 16px;
+          flex: 1;
+          justify-content: center;
         }
 
         .toggle-control {
@@ -1402,6 +1408,10 @@ export const SegmentedControl = (): JSX.Element => {
           .main-content {
             order: 1;
           }
+
+          .panel-card {
+            min-height: 180px;
+          }
         }
 
         @media (max-width: 768px) {
@@ -1418,24 +1428,24 @@ export const SegmentedControl = (): JSX.Element => {
           }
           
           .sloth-container {
-            min-height: 180px;
+            min-height: 140px;
           }
           
           .sloth-character {
-            width: 180px;
-            height: 180px;
+            width: 140px;
+            height: 140px;
           }
           
           .status-message {
-            font-size: 28px;
+            font-size: 24px;
           }
           
           .status-message-container {
-            min-height: 70px;
+            min-height: 50px;
           }
           
           .sub-message-container {
-            min-height: 50px;
+            min-height: 40px;
           }
           
           .left-panel, .right-panel {
@@ -1479,6 +1489,14 @@ export const SegmentedControl = (): JSX.Element => {
           .recalibrate-btn {
             padding: 12px 20px;
             font-size: 14px;
+          }
+
+          .posture-display {
+            padding: 20px;
+          }
+
+          .panel-card {
+            min-height: 160px;
           }
         }
 
