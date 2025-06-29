@@ -533,16 +533,32 @@ export const SegmentedControl = (): JSX.Element => {
             </aside>
           </div>
 
-          {/* Footer */}
+          {/* Footer with Bolt.new Badge */}
           <footer className="app-footer">
             <div className="footer-content">
-              <span className="footer-text">Made with</span>
-              <img 
-                src={assets.love}
-                alt="love" 
-                className="footer-love-gif"
-              />
-              <span className="footer-text">by the Straighty team</span>
+              <div className="footer-left">
+                <span className="footer-text">Made with</span>
+                <img 
+                  src={assets.love}
+                  alt="love" 
+                  className="footer-love-gif"
+                />
+                <span className="footer-text">by the Straighty team</span>
+              </div>
+              <div className="footer-right">
+                <a 
+                  href="https://bolt.new" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bolt-badge-link"
+                >
+                  <img 
+                    src="https://storage.bolt.army/logotext_poweredby_360w.png" 
+                    alt="Powered by Bolt.new" 
+                    className="bolt-badge"
+                  />
+                </a>
+              </div>
             </div>
           </footer>
         </div>
@@ -1154,7 +1170,7 @@ export const SegmentedControl = (): JSX.Element => {
         /* Footer Styles */
         .app-footer {
           margin-top: 40px;
-          padding: 20px 0;
+          padding: 24px 0;
           border-top: 1px solid var(--border-color);
           display: flex;
           justify-content: center;
@@ -1163,7 +1179,21 @@ export const SegmentedControl = (): JSX.Element => {
         .footer-content {
           display: flex;
           align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          max-width: 1200px;
+          gap: 20px;
+        }
+
+        .footer-left {
+          display: flex;
+          align-items: center;
           gap: 8px;
+        }
+
+        .footer-right {
+          display: flex;
+          align-items: center;
         }
 
         .footer-text {
@@ -1175,6 +1205,34 @@ export const SegmentedControl = (): JSX.Element => {
           width: 20px;
           height: 20px;
           object-fit: contain;
+          animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+        }
+
+        .bolt-badge-link {
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .bolt-badge-link:hover {
+          transform: scale(1.05);
+        }
+
+        .bolt-badge {
+          height: 32px;
+          width: auto;
+          opacity: 0.8;
+          transition: all 0.3s ease;
+          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .bolt-badge:hover {
+          opacity: 1;
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
         }
 
         /* Modal Styles */
@@ -1464,6 +1522,12 @@ export const SegmentedControl = (): JSX.Element => {
           .posture-display {
             height: auto;
           }
+
+          .footer-content {
+            flex-direction: column;
+            gap: 12px;
+            text-align: center;
+          }
         }
 
         @media (max-width: 768px) {
@@ -1571,6 +1635,10 @@ export const SegmentedControl = (): JSX.Element => {
             width: 18px;
             height: 18px;
           }
+
+          .bolt-badge {
+            height: 28px;
+          }
         }
 
         @media (max-width: 480px) {
@@ -1612,6 +1680,10 @@ export const SegmentedControl = (): JSX.Element => {
           .footer-content {
             flex-wrap: wrap;
             justify-content: center;
+          }
+
+          .bolt-badge {
+            height: 24px;
           }
         }
 
