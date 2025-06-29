@@ -297,7 +297,7 @@ export const useRealPostureDetection = (toleranceValue: number = 25, soundsEnabl
 
     // Determine mood and status based on observations
     let mood: 'happy' | 'neutral' | 'angry' = 'happy';
-    let status = 'Perfect posture!';
+    let status = 'Checking posture!';
     
     if (observations.length === 1) {
       mood = 'neutral';
