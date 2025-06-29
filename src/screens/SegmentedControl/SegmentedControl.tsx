@@ -380,7 +380,9 @@ export const SegmentedControl = (): JSX.Element => {
                 className="posture-display"
                 style={{ backgroundColor: getBackgroundColor() }}
               >
-                <h2 className="status-message">{getStatusMessage()}</h2>
+                <div className="status-message-container">
+                  <h2 className="status-message">{getStatusMessage()}</h2>
+                </div>
                 
                 <div className="sloth-container">
                   <img 
@@ -405,7 +407,9 @@ export const SegmentedControl = (): JSX.Element => {
                   </div>
                 </div>
 
-                <p className="sub-message">{getSubMessage()}</p>
+                <div className="sub-message-container">
+                  <p className="sub-message">{getSubMessage()}</p>
+                </div>
 
                 {/* Recalibrate Button - Moved below sloth */}
                 <div className="recalibrate-container">
@@ -652,13 +656,27 @@ export const SegmentedControl = (): JSX.Element => {
           position: relative;
           margin-bottom: 30px;
           border: 1px solid rgba(255, 255, 255, 0.1);
+          display: flex;
+          flex-direction: column;
+        }
+
+        .status-message-container {
+          min-height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 24px;
         }
 
         .status-message {
           font-size: 32px;
           font-weight: 700;
-          margin-bottom: 32px;
           color: var(--text-primary);
+          line-height: 1.2;
+          text-align: center;
+          max-width: 100%;
+          word-wrap: break-word;
+          hyphens: auto;
         }
 
         .sloth-container {
@@ -667,6 +685,8 @@ export const SegmentedControl = (): JSX.Element => {
           display: flex;
           justify-content: center;
           align-items: center;
+          min-height: 220px;
+          flex-shrink: 0;
         }
 
         .sloth-character {
@@ -675,6 +695,7 @@ export const SegmentedControl = (): JSX.Element => {
           object-fit: contain;
           border-radius: 50%;
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+          flex-shrink: 0;
         }
 
         .stress-marks {
@@ -740,11 +761,22 @@ export const SegmentedControl = (): JSX.Element => {
           background-color: #ef4444;
         }
 
+        .sub-message-container {
+          min-height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 24px;
+        }
+
         .sub-message {
           font-size: 18px;
           line-height: 1.5;
           max-width: 400px;
-          margin: 0 auto 24px auto;
+          margin: 0 auto;
+          text-align: center;
+          word-wrap: break-word;
+          hyphens: auto;
         }
 
         /* Theme-specific text colors for sub-message */
@@ -759,7 +791,7 @@ export const SegmentedControl = (): JSX.Element => {
         .recalibrate-container {
           display: flex;
           justify-content: center;
-          margin-top: 24px;
+          margin-top: auto;
         }
 
         .recalibrate-btn {
@@ -1364,8 +1396,20 @@ export const SegmentedControl = (): JSX.Element => {
             height: 180px;
           }
           
+          .sloth-container {
+            min-height: 180px;
+          }
+          
           .status-message {
             font-size: 28px;
+          }
+          
+          .status-message-container {
+            min-height: 70px;
+          }
+          
+          .sub-message-container {
+            min-height: 50px;
           }
           
           .left-panel, .right-panel {
@@ -1378,12 +1422,12 @@ export const SegmentedControl = (): JSX.Element => {
             min-height: 300px;
           }
           
-          /* Mobile-specific button ordering */
           .modal-footer, .info-modal-footer {
             flex-direction: column;
             padding: 16px 20px;
           }
 
+          /* Mobile-specific button ordering */
           .modal-footer .modal-button.accept {
             order: 1;
           }
