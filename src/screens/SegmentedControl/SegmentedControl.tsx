@@ -327,7 +327,7 @@ export const SegmentedControl = (): JSX.Element => {
                   </div>
                 </div>
                 <div className="card-content">
-                  <label className="toggle-control">
+                  <labelClassName="toggle-control">
                     <input 
                       type="checkbox" 
                       checked={darkMode}
@@ -1378,9 +1378,18 @@ export const SegmentedControl = (): JSX.Element => {
             min-height: 300px;
           }
           
+          /* Mobile-specific button ordering */
           .modal-footer, .info-modal-footer {
             flex-direction: column;
             padding: 16px 20px;
+          }
+
+          .modal-footer .modal-button.accept {
+            order: 1;
+          }
+
+          .modal-footer .modal-button.decline {
+            order: 2;
           }
           
           .modal-button {
