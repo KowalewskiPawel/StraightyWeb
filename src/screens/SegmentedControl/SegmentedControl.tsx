@@ -327,7 +327,7 @@ export const SegmentedControl = (): JSX.Element => {
                   </div>
                 </div>
                 <div className="card-content">
-                  <labelClassName="toggle-control">
+                  <label className="toggle-control">
                     <input 
                       type="checkbox" 
                       checked={darkMode}
