@@ -358,8 +358,8 @@ export const SegmentedControl = (): JSX.Element => {
                 </div>
               </div>
 
-              {/* Detection Sensitivity Card */}
-              <div className="panel-card">
+              {/* Detection Sensitivity Card - Special height matching */}
+              <div className="panel-card detection-sensitivity-card">
                 <div className="card-header">
                   <img 
                     src={assets.love}
@@ -719,7 +719,7 @@ export const SegmentedControl = (): JSX.Element => {
           display: flex;
           justify-content: center;
           align-items: center;
-          min-height: 200px;
+          min-height: 280px;
           flex-shrink: 0;
         }
 
@@ -870,6 +870,11 @@ export const SegmentedControl = (): JSX.Element => {
           display: flex;
           flex-direction: column;
           min-height: 200px;
+        }
+
+        /* Special styling for Detection Sensitivity card to match sloth container height */
+        .detection-sensitivity-card {
+          min-height: 280px;
         }
 
         .panel-card:hover {
@@ -1452,6 +1457,10 @@ export const SegmentedControl = (): JSX.Element => {
             min-height: 180px;
           }
 
+          .detection-sensitivity-card {
+            min-height: 180px;
+          }
+
           .posture-display {
             height: auto;
           }
@@ -1538,6 +1547,10 @@ export const SegmentedControl = (): JSX.Element => {
           }
 
           .panel-card {
+            min-height: 160px;
+          }
+
+          .detection-sensitivity-card {
             min-height: 160px;
           }
 
