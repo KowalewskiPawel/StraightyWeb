@@ -532,6 +532,19 @@ export const SegmentedControl = (): JSX.Element => {
               </div>
             </aside>
           </div>
+
+          {/* Footer */}
+          <footer className="app-footer">
+            <div className="footer-content">
+              <span className="footer-text">Made with</span>
+              <img 
+                src={assets.love}
+                alt="love" 
+                className="footer-love-gif"
+              />
+              <span className="footer-text">by the Straighty team</span>
+            </div>
+          </footer>
         </div>
       </div>
 
@@ -590,8 +603,6 @@ export const SegmentedControl = (): JSX.Element => {
           color: var(--text-primary);
           display: flex;
           flex-direction: column;
-          /* Mobile bottom spacing fix */
-          padding-bottom: env(safe-area-inset-bottom, 0px);
         }
 
         .app-container {
@@ -602,7 +613,6 @@ export const SegmentedControl = (): JSX.Element => {
           margin: 0 auto;
           width: 100%;
           padding: 0 20px;
-          /* Reduced mobile bottom spacing */
           padding-bottom: 20px;
         }
 
@@ -646,8 +656,8 @@ export const SegmentedControl = (): JSX.Element => {
           display: flex;
           gap: 30px;
           flex: 1;
-          min-height: 0;
-          align-items: flex-start;
+          min-height: 600px;
+          align-items: stretch;
         }
 
         .left-panel, .right-panel {
@@ -663,7 +673,7 @@ export const SegmentedControl = (): JSX.Element => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: flex-start;
+          justify-content: center;
           padding: 0 20px;
           min-width: 0;
         }
@@ -672,7 +682,7 @@ export const SegmentedControl = (): JSX.Element => {
           width: 100%;
           max-width: 600px;
           border-radius: 24px;
-          padding: 24px;
+          padding: 32px;
           text-align: center;
           transition: background-color 0.5s ease;
           position: relative;
@@ -680,19 +690,20 @@ export const SegmentedControl = (): JSX.Element => {
           border: 1px solid rgba(255, 255, 255, 0.1);
           display: flex;
           flex-direction: column;
-          min-height: fit-content;
+          height: 100%;
+          justify-content: space-between;
         }
 
         .status-message-container {
-          min-height: 60px;
+          min-height: 70px;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
 
         .status-message {
-          font-size: 28px;
+          font-size: 30px;
           font-weight: 700;
           color: var(--text-primary);
           line-height: 1.2;
@@ -704,17 +715,17 @@ export const SegmentedControl = (): JSX.Element => {
 
         .sloth-container {
           position: relative;
-          margin-bottom: 20px;
+          margin-bottom: 24px;
           display: flex;
           justify-content: center;
           align-items: center;
-          min-height: 160px;
+          min-height: 200px;
           flex-shrink: 0;
         }
 
         .sloth-character {
-          width: 160px;
-          height: 160px;
+          width: 200px;
+          height: 200px;
           object-fit: contain;
           border-radius: 50%;
           filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
@@ -723,18 +734,18 @@ export const SegmentedControl = (): JSX.Element => {
 
         .stress-marks {
           position: absolute;
-          top: 15px;
-          right: 45px;
-          font-size: 20px;
+          top: 20px;
+          right: 50px;
+          font-size: 22px;
           color: #ff4444;
           animation: pulse 1s infinite;
         }
 
         .no-person-indicator {
           position: absolute;
-          top: 15px;
-          left: 45px;
-          font-size: 20px;
+          top: 20px;
+          left: 50px;
+          font-size: 22px;
           opacity: 0.5;
           animation: fade 2s infinite;
         }
@@ -750,7 +761,7 @@ export const SegmentedControl = (): JSX.Element => {
         }
 
         .progress-container {
-          margin-bottom: 16px;
+          margin-bottom: 20px;
           width: 100%;
           max-width: 400px;
           margin-left: auto;
@@ -785,15 +796,15 @@ export const SegmentedControl = (): JSX.Element => {
         }
 
         .sub-message-container {
-          min-height: 50px;
+          min-height: 55px;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
         }
 
         .sub-message {
-          font-size: 16px;
+          font-size: 17px;
           line-height: 1.5;
           max-width: 400px;
           margin: 0 auto;
@@ -818,7 +829,7 @@ export const SegmentedControl = (): JSX.Element => {
         }
 
         .recalibrate-btn {
-          padding: 12px 24px;
+          padding: 14px 28px;
           background-color: var(--accent-color);
           color: white;
           border: none;
@@ -858,6 +869,7 @@ export const SegmentedControl = (): JSX.Element => {
           flex: 1;
           display: flex;
           flex-direction: column;
+          min-height: 200px;
         }
 
         .panel-card:hover {
@@ -1134,6 +1146,32 @@ export const SegmentedControl = (): JSX.Element => {
           background: var(--accent-hover);
         }
 
+        /* Footer Styles */
+        .app-footer {
+          margin-top: 40px;
+          padding: 20px 0;
+          border-top: 1px solid var(--border-color);
+          display: flex;
+          justify-content: center;
+        }
+
+        .footer-content {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .footer-text {
+          font-size: 14px;
+          color: var(--text-secondary);
+        }
+
+        .footer-love-gif {
+          width: 20px;
+          height: 20px;
+          object-fit: contain;
+        }
+
         /* Modal Styles */
         .modal-overlay {
           position: fixed;
@@ -1395,6 +1433,7 @@ export const SegmentedControl = (): JSX.Element => {
           .content-wrapper {
             flex-direction: column;
             align-items: stretch;
+            min-height: auto;
           }
           
           .left-panel, .right-panel {
@@ -1412,13 +1451,16 @@ export const SegmentedControl = (): JSX.Element => {
           .panel-card {
             min-height: 180px;
           }
+
+          .posture-display {
+            height: auto;
+          }
         }
 
         @media (max-width: 768px) {
           .app-container {
             padding: 0 10px;
-            /* Reduced mobile bottom padding */
-            padding-bottom: 30px;
+            padding-bottom: 20px;
           }
           
           .top-header {
@@ -1498,12 +1540,29 @@ export const SegmentedControl = (): JSX.Element => {
           .panel-card {
             min-height: 160px;
           }
+
+          .app-footer {
+            margin-top: 20px;
+            padding: 16px 0;
+          }
+
+          .footer-content {
+            gap: 6px;
+          }
+
+          .footer-text {
+            font-size: 13px;
+          }
+
+          .footer-love-gif {
+            width: 18px;
+            height: 18px;
+          }
         }
 
         @media (max-width: 480px) {
           .app-container {
-            /* Reduced extra bottom padding for small mobile screens */
-            padding-bottom: 40px;
+            padding-bottom: 20px;
           }
 
           .modal-overlay {
@@ -1536,26 +1595,28 @@ export const SegmentedControl = (): JSX.Element => {
           .modal-content {
             max-width: 95vw;
           }
+
+          .footer-content {
+            flex-wrap: wrap;
+            justify-content: center;
+          }
         }
 
         /* iOS Safari specific fixes */
         @supports (-webkit-touch-callout: none) {
           .desktop-app {
-            /* iOS Safari safe area support */
             padding-bottom: max(20px, env(safe-area-inset-bottom));
           }
           
           @media (max-width: 768px) {
             .app-container {
-              /* iOS Safari bottom padding */
-              padding-bottom: max(30px, env(safe-area-inset-bottom, 30px));
+              padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
             }
           }
 
           @media (max-width: 480px) {
             .app-container {
-              /* iOS Safari extra bottom padding for small screens */
-              padding-bottom: max(40px, env(safe-area-inset-bottom, 40px));
+              padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
             }
           }
         }
