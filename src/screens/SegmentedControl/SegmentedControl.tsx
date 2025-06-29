@@ -671,7 +671,6 @@ export const SegmentedControl = (): JSX.Element => {
         .posture-display {
           width: 100%;
           max-width: 600px;
-          height: 100%;
           border-radius: 24px;
           padding: 40px;
           text-align: center;
@@ -681,6 +680,7 @@ export const SegmentedControl = (): JSX.Element => {
           border: 1px solid rgba(255, 255, 255, 0.1);
           display: flex;
           flex-direction: column;
+          /* Remove height: 100% and let it size naturally */
         }
 
         .status-message-container {
@@ -1401,10 +1401,6 @@ export const SegmentedControl = (): JSX.Element => {
 
           .main-content {
             order: 1;
-          }
-
-          .posture-display {
-            height: auto;
           }
         }
 
