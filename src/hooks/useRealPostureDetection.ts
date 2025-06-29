@@ -253,7 +253,7 @@ export const useRealPostureDetection = (toleranceValue: number = 25, soundsEnabl
 
     const baseline = baselineRef.current;
     const thresholds = getThresholds();
-    const observations: string[] = [];
+    const commands: string[] = [];
 
     // Debug logging every 60 frames (~1 second like Swift)
     if (frameCounter.current % 60 === 0) {
@@ -264,7 +264,7 @@ export const useRealPostureDetection = (toleranceValue: number = 25, soundsEnabl
       console.log('================================');
     }
 
-    // Check posture using Swift-style logic - but report FACTS only
+    // Check posture using Swift-style logic - but give actionable commands
     let shoulderXOK = true;
     let shoulderYOK = true;
     let headShoulderYOK = true;
@@ -276,39 +276,39 @@ export const useRealPostureDetection = (toleranceValue: number = 25, soundsEnabl
     if (shoulderXChange > shoulderXThreshold) {
       shoulderXOK = false;
       if (avgShoulderXDiff < baseline.shoulderDistanceX) {
-        observations.push("Shoulder width narrow"); // Factual observation
+        commands.push("Shoulders back!"); // Clear actionable command
       } else {
-        observations.push("Shoulder width wide"); // Factual observation
+        commands.push("Ease shoulders forward"); // Clear actionable command
       }
     }
 
     // 2. Shoulder height balance (Y difference) - Swift style  
     if (avgShoulderYDiff > baseline.shoulderDistanceY + thresholds.shoulderYThreshold) {
       shoulderYOK = false;
-      observations.push("Shoulders uneven"); // Factual observation
+      commands.push("Level your shoulders"); // Clear actionable command
     }
 
     // 3. Head position (Y difference) - Swift style
     const headYThreshold = baseline.headShoulderDistanceY * thresholds.headShoulderYThreshold;
     if (avgHeadShoulderYDiff < baseline.headShoulderDistanceY - headYThreshold) {
       headShoulderYOK = false;
-      observations.push("Head position forward"); // Factual observation
+      commands.push("Chin up!"); // Clear actionable command
     }
 
-    // Determine mood and status based on observations
+    // Determine mood and status based on commands
     let mood: 'happy' | 'neutral' | 'angry' = 'happy';
-    let status = 'Checking posture!';
+    let status = 'Perfect posture!';
     
-    if (observations.length === 1) {
+    if (commands.length === 1) {
       mood = 'neutral';
-      status = observations[0];
-    } else if (observations.length >= 2) {
+      status = commands[0];
+    } else if (commands.length >= 2) {
       mood = 'angry';
-      status = observations.slice(0, 2).join(' & ');
+      status = commands.slice(0, 2).join(' & ');
     }
 
     // Use cooldown function to update analysis
-    updateAnalysisWithCooldown(mood, status, observations.length, poseData.confidence);
+    updateAnalysisWithCooldown(mood, status, commands.length, poseData.confidence);
   }, [toleranceValue, updateAnalysisWithCooldown]);
 
   const resetCalibration = useCallback(() => {
