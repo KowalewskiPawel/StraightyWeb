@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CameraFeed } from '../../components/CameraFeed';
 import { useRealPostureDetection } from '../../hooks/useRealPostureDetection';
 import { usePomodoroTimer } from '../../hooks/usePomodoroTimer';
+import { assets } from '../../assets';
 
 export const SegmentedControl = (): JSX.Element => {
   const [toleranceValue, setToleranceValue] = useState(25);
@@ -79,10 +80,10 @@ export const SegmentedControl = (): JSX.Element => {
   };
 
   const getSlothImage = () => {
-    if (isCalibrating || analysis.status === 'No person detected') return '/src/assets/sloth_happy.png';
-    if (analysis.mood === 'happy') return '/src/assets/sloth_happy.png';
-    if (analysis.mood === 'neutral') return '/src/assets/sloth_sad.png';
-    return '/src/assets/sloth_angry.png';
+    if (isCalibrating || analysis.status === 'No person detected') return assets.slothHappy;
+    if (analysis.mood === 'happy') return assets.slothHappy;
+    if (analysis.mood === 'neutral') return assets.slothSad;
+    return assets.slothAngry;
   };
 
   const handleToleranceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -191,7 +192,7 @@ export const SegmentedControl = (): JSX.Element => {
               <div className="info-header-content">
                 <h2>Welcome to Straighty!</h2>
                 <img 
-                  src="/src/assets/sloth_happy.png"
+                  src={assets.slothHappy}
                   alt="Straighty Sloth" 
                   className="info-sloth"
                 />
@@ -279,7 +280,7 @@ export const SegmentedControl = (): JSX.Element => {
             <div className="header-left">
               <div className="logo">
                 <img 
-                  src="/src/assets/sloth_happy.png"
+                  src={assets.slothHappy}
                   alt="Straighty Logo" 
                   className="logo-img"
                 />
@@ -344,7 +345,7 @@ export const SegmentedControl = (): JSX.Element => {
               <div className="panel-card">
                 <div className="card-header">
                   <img 
-                    src="/src/assets/love.GIF"
+                    src={assets.love}
                     alt="Detection Sensitivity" 
                     className="card-icon-img"
                   />
@@ -433,7 +434,7 @@ export const SegmentedControl = (): JSX.Element => {
               <div className="panel-card">
                 <div className="card-header">
                   <img 
-                    src="/src/assets/pomodoro.png"
+                    src={assets.pomodoro}
                     alt="Focus Timer" 
                     className="card-icon-img"
                   />
@@ -483,7 +484,7 @@ export const SegmentedControl = (): JSX.Element => {
               <div className="panel-card">
                 <div className="card-header">
                   <img 
-                    src="/src/assets/slothMeditation.PNG"
+                    src={assets.slothMeditation}
                     alt="Info & Feedback" 
                     className="card-icon-img"
                   />
