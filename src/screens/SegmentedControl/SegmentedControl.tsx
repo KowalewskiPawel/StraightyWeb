@@ -296,7 +296,11 @@ export const SegmentedControl = (): JSX.Element => {
               {/* Sound Effects Card */}
               <div className="panel-card">
                 <div className="card-header">
-                  <span className="card-icon">🔊</span>
+                  <img 
+                    src={assets.slothMusic}
+                    alt="Sound Effects" 
+                    className="card-icon-img"
+                  />
                   <div className="card-info">
                     <h3 className="card-title">Sound Effects</h3>
                     <p className="card-subtitle">Audio feedback alerts</p>
@@ -320,7 +324,11 @@ export const SegmentedControl = (): JSX.Element => {
               {/* Dark Mode Card */}
               <div className="panel-card">
                 <div className="card-header">
-                  <span className="card-icon">{darkMode ? '🌙' : '☀️'}</span>
+                  <img 
+                    src={assets.slothSettings}
+                    alt="Appearance Settings" 
+                    className="card-icon-img"
+                  />
                   <div className="card-info">
                     <h3 className="card-title">Appearance</h3>
                     <p className="card-subtitle">Theme preference</p>
@@ -1391,13 +1399,13 @@ export const SegmentedControl = (): JSX.Element => {
             align-items: stretch;
           }
           
+          .sloth-container {
+            min-height: 180px;
+          }
+          
           .sloth-character {
             width: 180px;
             height: 180px;
-          }
-          
-          .sloth-container {
-            min-height: 180px;
           }
           
           .status-message {
