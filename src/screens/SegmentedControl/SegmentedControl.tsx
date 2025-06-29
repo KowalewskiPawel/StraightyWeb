@@ -602,8 +602,8 @@ export const SegmentedControl = (): JSX.Element => {
           margin: 0 auto;
           width: 100%;
           padding: 0 20px;
-          /* Mobile bottom spacing */
-          padding-bottom: 40px;
+          /* Reduced mobile bottom spacing */
+          padding-bottom: 20px;
         }
 
         .top-header {
@@ -647,6 +647,7 @@ export const SegmentedControl = (): JSX.Element => {
           gap: 30px;
           flex: 1;
           min-height: 0;
+          align-items: stretch;
         }
 
         .left-panel, .right-panel {
@@ -670,6 +671,7 @@ export const SegmentedControl = (): JSX.Element => {
         .posture-display {
           width: 100%;
           max-width: 600px;
+          height: 100%;
           border-radius: 24px;
           padding: 40px;
           text-align: center;
@@ -1386,6 +1388,7 @@ export const SegmentedControl = (): JSX.Element => {
         @media (max-width: 1200px) {
           .content-wrapper {
             flex-direction: column;
+            align-items: stretch;
           }
           
           .left-panel, .right-panel {
@@ -1399,13 +1402,17 @@ export const SegmentedControl = (): JSX.Element => {
           .main-content {
             order: 1;
           }
+
+          .posture-display {
+            height: auto;
+          }
         }
 
         @media (max-width: 768px) {
           .app-container {
             padding: 0 10px;
-            /* Increased mobile bottom padding */
-            padding-bottom: 60px;
+            /* Reduced mobile bottom padding */
+            padding-bottom: 30px;
           }
           
           .top-header {
@@ -1481,8 +1488,8 @@ export const SegmentedControl = (): JSX.Element => {
 
         @media (max-width: 480px) {
           .app-container {
-            /* Extra bottom padding for small mobile screens */
-            padding-bottom: 80px;
+            /* Reduced extra bottom padding for small mobile screens */
+            padding-bottom: 40px;
           }
 
           .modal-overlay {
@@ -1521,20 +1528,20 @@ export const SegmentedControl = (): JSX.Element => {
         @supports (-webkit-touch-callout: none) {
           .desktop-app {
             /* iOS Safari safe area support */
-            padding-bottom: max(40px, env(safe-area-inset-bottom));
+            padding-bottom: max(20px, env(safe-area-inset-bottom));
           }
           
           @media (max-width: 768px) {
             .app-container {
               /* iOS Safari bottom padding */
-              padding-bottom: max(60px, env(safe-area-inset-bottom, 60px));
+              padding-bottom: max(30px, env(safe-area-inset-bottom, 30px));
             }
           }
 
           @media (max-width: 480px) {
             .app-container {
               /* iOS Safari extra bottom padding for small screens */
-              padding-bottom: max(80px, env(safe-area-inset-bottom, 80px));
+              padding-bottom: max(40px, env(safe-area-inset-bottom, 40px));
             }
           }
         }
