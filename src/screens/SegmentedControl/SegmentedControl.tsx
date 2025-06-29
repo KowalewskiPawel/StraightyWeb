@@ -149,25 +149,34 @@ export const SegmentedControl = (): JSX.Element => {
             
             <div className="modal-body">
               <div className="terms-section">
-                <h3>Terms of Use</h3>
+                <h3>Terms of Use & Medical Disclaimers</h3>
                 <div className="terms-text">
-                  <p><strong>1. Informational Purpose Only</strong></p>
-                  <p>Straighty Demo is designed for informational and awareness purposes only. This application is not a medical device and does not provide medical advice, diagnosis, or treatment.</p>
+                  <p><strong>1. Not a Substitute for Professional Medical Advice</strong></p>
+                  <p>Straighty Demo is designed for informational and awareness purposes only. This application is not a medical device and does not provide medical advice, diagnosis, or treatment. The feedback provided is not a substitute for professional medical advice, examination, diagnosis, or treatment.</p>
                   
-                  <p><strong>2. Not Medical Advice</strong></p>
-                  <p>The posture observations and feedback provided by this demo are not intended to replace professional medical advice. Always consult with a healthcare professional for medical concerns.</p>
+                  <p><strong>2. Consult Healthcare Provider Before Starting Exercise</strong></p>
+                  <p>Before beginning any posture improvement program or making significant changes to your sitting habits, consult with your healthcare provider. This is especially important if you have existing back, neck, or spinal conditions, chronic pain, recent injuries, or any other health concerns.</p>
                   
-                  <p><strong>3. Camera Usage</strong></p>
-                  <p>This demo uses your camera locally on your device for posture detection. No video data is transmitted or stored on external servers.</p>
+                  <p><strong>3. Use at Your Own Risk</strong></p>
+                  <p>You acknowledge and agree that you use this demo application entirely at your own risk. The developers, distributors, and associated parties are not responsible for any injuries, health issues, or adverse effects that may arise from using this application or following its suggestions.</p>
                   
-                  <p><strong>4. Use at Your Own Risk</strong></p>
-                  <p>You use this demo application at your own risk. We are not responsible for any health issues that may arise from using this demo.</p>
+                  <p><strong>4. Liability Limitations</strong></p>
+                  <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THIS APPLICATION.</p>
                   
-                  <p><strong>5. Data Privacy</strong></p>
-                  <p>All processing is done locally on your device. We do not collect, store, or transmit personal data or camera footage.</p>
+                  <p><strong>5. Individual Health Considerations</strong></p>
+                  <p>Every individual's physical condition and health needs are different. What works for one person may not be suitable for another. Always listen to your body and stop using the application if you experience any discomfort, pain, or adverse effects.</p>
                   
-                  <p><strong>6. Session-Based Agreement</strong></p>
-                  <p>This agreement is valid for your current session only. You will be required to accept these terms each time you use the demo.</p>
+                  <p><strong>6. Camera and Privacy</strong></p>
+                  <p>This demo uses your camera locally on your device for posture detection. No video data is transmitted to or stored on external servers. All processing occurs locally on your device.</p>
+                  
+                  <p><strong>7. Session-Based Agreement</strong></p>
+                  <p>This agreement is valid for your current session only. You will be required to accept these terms each time you use the demo application.</p>
+                  
+                  <p><strong>8. Age Restrictions</strong></p>
+                  <p>This application is intended for use by adults aged 18 and over. Minors should only use this application under appropriate adult supervision and with parental consent.</p>
+                  
+                  <p><strong>9. No Guarantee of Results</strong></p>
+                  <p>We make no guarantees about the effectiveness of posture monitoring or improvement. Individual results may vary, and consistent improvement requires professional guidance and sustained effort beyond what this demo provides.</p>
                 </div>
               </div>
             </div>
@@ -1133,9 +1142,9 @@ export const SegmentedControl = (): JSX.Element => {
           background: var(--bg-primary);
           border: 1px solid var(--border-color);
           border-radius: 16px;
-          max-width: 600px;
+          max-width: 700px;
           width: 100%;
-          max-height: 85vh;
+          max-height: 90vh;
           overflow: hidden;
           box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
           display: flex;
@@ -1182,7 +1191,7 @@ export const SegmentedControl = (): JSX.Element => {
         }
 
         .terms-text p {
-          margin-bottom: 12px;
+          margin-bottom: 16px;
         }
 
         .terms-text strong {
@@ -1486,6 +1495,14 @@ export const SegmentedControl = (): JSX.Element => {
 
           .modal-footer, .info-modal-footer {
             padding: 12px 16px;
+          }
+
+          .terms-text {
+            font-size: 13px;
+          }
+
+          .modal-content {
+            max-width: 95vw;
           }
         }
       `}</style>
